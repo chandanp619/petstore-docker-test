@@ -1,0 +1,25 @@
+version: '3.3'
+
+services:
+
+  petstore-service: 
+    container_name: petstore-service
+    build:
+      context: './petstore_service'
+      dockerfile: Dockerfile
+    volumes:
+      - '.:D:\src\app'
+      - 'D:\src\app\node_modules'
+    ports:
+      - '3000:3000'
+  petstore-web:
+    container_name: petstore
+    build:
+      context: './petstore_web'
+      dockerfile: Dockerfile
+    volumes:
+      - '.:D:\src\app'
+      - 'D:\src\app\node_modules'
+    ports:
+      - '4200:4200'
+      
